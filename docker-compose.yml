@@ -3,12 +3,12 @@ services:
   wordpress:
     image: wordpress:latest # https://hub.docker.com/_/wordpress/
     ports:
-      - 127.0.0.1:2080:80 # change ip if required
+      - 127.0.0.1:2080:80 # change ip by entering server:port:docker port
     volumes:
       - ./config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-      - ./wp-app:/var/www/html # Full wordpress project
-      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
-      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+      - ./wp-app:/var/www/html # Full wordpress project fiels can be edited here
+      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development environment
+      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development environment
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: wordpress
